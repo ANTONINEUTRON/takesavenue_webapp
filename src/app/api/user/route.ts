@@ -37,7 +37,8 @@ export async function POST(request: NextRequest) {
       id: uuidv4(),
       username: username,
       email: email,
-      profilePics: "",
+      profile_pics: "",
+      credits: 30,
       keypair: Keypair.generate().secretKey as unknown as [],
     }
     const supabaseService = SupabaseService.getInstance()

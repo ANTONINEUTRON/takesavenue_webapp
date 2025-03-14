@@ -2,6 +2,7 @@ export interface User{
     id: string;
     username: string;
     email: string;
-    profilePics: "";
+    profile_pics: "";
     keypair: [];
+    credits: number;
 }

@@ -5,7 +5,7 @@ export default function Page() {
       <main className="max-w-5xl mx-auto px-4 py-16">
         <div className="text-center space-y-6">
           <h1 className="text-7xl font-bold tracking-tight">
-            Tasks<span className="text-primaryContent">Avenue</span>
+            Takes<span className="text-primaryContent">Avenue</span>
           </h1>
           <p className="text-2xl text-gray-300">
             Where your banter turns into tokens
