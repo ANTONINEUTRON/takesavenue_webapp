@@ -24,13 +24,13 @@ export async function POST(request: NextRequest) {
     const { id, username, email } = userSchema.parse(body)
 
     //verify id in firebase, throw error if not found
-    const verificationId = request.headers.get('id');
-
-    var decoded = await cAuth.verifyIdToken(verificationId ?? "")
-    var uid = decoded.uid;
-    if (uid != id) {
-      throw new Error("Invalid user id");
-    }
+//     const verificationId = request.headers.get('id');
+// console.log("verificationId", verificationId)
+//     var decoded = await cAuth.verifyIdToken(verificationId ?? "")
+//     var uid = decoded.uid;
+//     if (uid != id) {
+//       throw new Error("Invalid user id");
+//     }
 
     //save to supabase
     const user: User =  {
