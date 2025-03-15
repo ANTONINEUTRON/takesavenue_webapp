@@ -22,9 +22,9 @@ export async function POST(request: NextRequest) {
     // receive the request body
     const body = await request.json()
     const { id, username, email } = userSchema.parse(body)
-
+console.log("what was gotten",body)
     //verify id in firebase, throw error if not found
-//     const verificationId = request.headers.get('id');
+    // const verificationId = request.headers.get('id');
 // console.log("verificationId", verificationId)
 //     var decoded = await cAuth.verifyIdToken(verificationId ?? "")
 //     var uid = decoded.uid;

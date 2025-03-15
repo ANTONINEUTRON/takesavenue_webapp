@@ -22,6 +22,7 @@ export class SupabaseService {
 
     public async createUser(user: User) {
         try {
+            console.log("Saving user to DB:", user);
             const { data, error } = await (await this.client)
                 .from(USER_TABLE)
                 .insert([user]);
