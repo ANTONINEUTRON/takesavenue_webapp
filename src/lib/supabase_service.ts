@@ -22,7 +22,6 @@ export class SupabaseService {
 
     public async createUser(user: User) {
         try {
-            console.log("Saving user to DB:", user);
             const { data, error } = await (await this.client)
                 .from(USER_TABLE)
                 .insert([user]);
@@ -33,6 +32,30 @@ export class SupabaseService {
         } catch (error) {
             console.error("Error saving donation to DB:", error);
             throw error;
+        }
+    }
+
+    public async signIn(userId: string): Promise<User | null> {
+        try {
+            const { data, error } = await (await this.client)
+                .from(USER_TABLE)
+                .select('*')
+                .eq('id', userId)
+                .single();
+
+            if (error) {
+                console.error("Error fetching user:", error);
+                return null;
+            }
+
+            if (!data) {
+                return null;
+            }
+
+            return data as User;
+        } catch (error) {
+            console.error("Error in signIn:", error);
+            return null;
         }
     }
 }
