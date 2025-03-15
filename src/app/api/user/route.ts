@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
 
     //save to supabase
     const user: User =  {
-      id: uuidv4(),
+      id: id,
       username: username,
       email: email,
       profile_pics: "",
