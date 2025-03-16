@@ -6,7 +6,7 @@ export const APP_URL = "https://beta.setita.com"
 
 export const USER_TABLE = "users"
 
-export const TAKE_TABLE = "take"
+export const TAKE_TABLE = "takes"
 
 export const VOTE_TABLE = "votes"
 
@@ -14,3 +14,5 @@ export const HELIUS_ENDPOINT = "https://devnet.helius-rpc.com/?api-key=" + proce
 // https://mainnet.helius-rpc.com/?api-key=ammmmmm
 
 export const APP_CONNECTION: Connection = new Connection(HELIUS_ENDPOINT, "confirmed");
+
+export const INITIAL_CREDIT  = 30;

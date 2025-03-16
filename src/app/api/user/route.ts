@@ -3,8 +3,8 @@ import { z } from 'zod'
 import { SupabaseService } from '@/lib/supabase_service'
 import { Keypair } from '@solana/web3.js'
 import { User } from '@/lib/type/user'
-import { v4 as uuidv4 } from 'uuid';
 import { cAuth } from '@/firebaseconfig'
+import { INITIAL_CREDIT } from '@/lib/constants'
 
 const userSchema = z.object({
   id: z.string(),
@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
       username: username,
       email: email,
       profile_pics: "",
-      credits: 30,
+      credits: INITIAL_CREDIT,
       keypair: Keypair.generate().secretKey as unknown as [],
     }
     const supabaseService = SupabaseService.getInstance()
@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
     //generate wallet keypair and return
     return NextResponse.json({
       message: 'User created successfully',
-      user: {...user, keypair: undefined}
+      user: { ...user, keypair: Keypair.fromSecretKey(Uint8Array.from(Object.values(user.keypair))).publicKey.toString(),}
     })
 
   } catch (error) {

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { SupabaseService } from '@/lib/supabase_service'
+import { Keypair } from '@solana/web3.js'
 
 const signInSchema = z.object({
   userId: z.string()
@@ -21,8 +22,9 @@ export async function POST(request: NextRequest) {
       )
     }
 
+
     return NextResponse.json({
-      user: { ...user, keypair: undefined }
+      user: { ...user, keypair: Keypair.fromSecretKey(Uint8Array.from(Object.values(user.keypair))).publicKey.toString(), }
     })
 
   } catch (error) {

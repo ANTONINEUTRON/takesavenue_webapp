@@ -1,7 +1,8 @@
 import { SUPABASE_CLIENT } from "@/supabaseconfig";
 import { SupabaseClient } from "@supabase/supabase-js";
 import { User } from "./type/user";
-import { USER_TABLE } from "./constants";
+import { TAKE_TABLE, USER_TABLE } from "./constants";
+import { Take } from "./type/take";
 
 // All operations here are rendered on the server side
 // DON'T CALL FROM ANY FRONT FACING COMPONENT
@@ -56,6 +57,26 @@ export class SupabaseService {
         } catch (error) {
             console.error("Error in signIn:", error);
             return null;
+        }
+    }
+
+    //
+    //Take
+    public async createTake(take: Take) {
+        try {
+            console.log("Creating take:", take);
+            const { data, error } = await (await this.client)
+                .from(TAKE_TABLE)
+                .insert([take]);
+
+            if (error) {
+                console.error("Error saving take to DBbb:", error);
+                throw error;
+            }
+
+        } catch (error) {
+            console.error("Error saving take to DB:", error);
+            throw error;
         }
     }
 }
