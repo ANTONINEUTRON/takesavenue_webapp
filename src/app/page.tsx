@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Page() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-violet-900 via-purple-800 to-blue-900 text-white">
@@ -40,9 +42,10 @@ export default function Page() {
 
           {/* CTA Section */}
           <div className="mt-16 space-x-4">
-            <button className="bg-primaryContent text-black px-8 py-4 rounded-full text-lg font-bold hover:bg-gray-400 transition-all">
-              Download App
-            </button>
+            <Link href={"https://github.com/ANTONINEUTRON/takesavenue_webapp/releases/tag/TakesAvenue_v0.5-beta"} className="bg-primaryContent text-black px-8 py-4 rounded-full text-lg font-bold hover:bg-gray-400 transition-all">
+              
+                Download App
+            </Link>
             <button className="border-2 border-primaryCbg-primaryContent text-primaryCbg-primaryContent px-8 py-4 rounded-full text-lg font-bold hover:bg-yellow-400/10 transition-all">
               Join Waitlist
             </button>

@@ -6,14 +6,14 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-basic = "6z68wfurCMYkZG51s1Et9BJEd9nJGUusjHXNt4dGbNNF"
+takesavenue = "3P93gJvovZBs2hZvAdsC3JpobCcoU1qqoYwaCpUPVGpZ"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
-wallet = "~/.config/solana/id.json"
+cluster = "https://api.testnet.sonic.game"
+wallet = "~/.config/solana/devnet.json"
 
 [scripts]
 test = "../node_modules/.bin/jest --preset ts-jest"

@@ -1,8 +1,8 @@
 import * as anchor from '@coral-xyz/anchor'
 import { Program } from '@coral-xyz/anchor'
-import { Basic } from '../target/types/basic'
+import { Takesavenue } from '../target/types/takesavenue'
 
-describe('basic', () => {
+describe('takesavenue test', () => {
   // Configure the client to use the local cluster.
   anchor.setProvider(anchor.AnchorProvider.env())
 
