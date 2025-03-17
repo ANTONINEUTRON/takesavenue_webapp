@@ -37,7 +37,7 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ 
-      user: { ...user, keypair: Keypair.fromSecretKey(Uint8Array.from(Object.values(user!.keypair))).publicKey.toString(), } 
+      user: { ...user, keypair: Keypair.fromSecretKey(Uint8Array.from(Object.values(user!.keypair!))).publicKey.toString(), } 
     })
 
   } catch (error) {

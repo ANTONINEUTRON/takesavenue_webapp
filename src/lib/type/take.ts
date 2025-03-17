@@ -8,6 +8,8 @@ export interface Take {
     punishment: string;
     content: string;
     responder: string;
+    responsetype?: string; //video, image, text
+    response?: string;
     agrees?: number;
     disagrees?: number;
     duration: number; // in milliseconds

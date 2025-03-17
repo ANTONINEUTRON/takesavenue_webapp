@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { SupabaseService } from '@/lib/supabase_service'
 import { v4 as uuidv4 } from 'uuid';
@@ -19,15 +19,12 @@ const createTakeSchema = z.object({
     .default(86400000) // 24 hours in milliseconds
 })
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
     try {
       const body = await request.json()
-      console.log("takeData hotii", body);
     const takeData = createTakeSchema.parse(body)
-        console.log("takeData hotii",takeData);
 
     const supabaseService = SupabaseService.getInstance()
-    console.log("takeData", takeData);
     const take = await supabaseService.createTake({
       id: uuidv4(),
       userId: takeData.userId,
@@ -58,6 +55,34 @@ export async function POST(request: Request) {
     }
 
     console.error('Error creating take:', error)
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
+  }
+}
+
+export async function GET(request: NextRequest) {
+  try {
+    const searchParams = request.nextUrl.searchParams
+    console.log("takes got in", searchParams);
+    const page = parseInt(searchParams.get('page') || '1')
+    const limit = parseInt(searchParams.get('limit') || '30')
+    console.log("takes got invv", searchParams);
+
+    const supabaseService = SupabaseService.getInstance()
+    const takes = await supabaseService.getTakes(page, limit)
+
+    return NextResponse.json({
+      takes,
+      pagination: {
+        page,
+        limit
+      }
+    })
+
+  } catch (error) {
+    console.error('Error fetching takes:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

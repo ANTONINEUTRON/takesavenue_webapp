@@ -3,6 +3,6 @@ export interface User{
     username: string;
     email: string;
     profile_pics: string;
-    keypair: [];
+    keypair?: [];
     credits: number;
 }

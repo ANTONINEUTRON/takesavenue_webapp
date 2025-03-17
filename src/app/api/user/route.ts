@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
     //generate wallet keypair and return
     return NextResponse.json({
       message: 'User created successfully',
-      user: { ...user, keypair: Keypair.fromSecretKey(Uint8Array.from(Object.values(user.keypair))).publicKey.toString(),}
+      user: { ...user, keypair: Keypair.fromSecretKey(Uint8Array.from(Object.values(user.keypair!))).publicKey.toString(),}
     })
 
   } catch (error) {
