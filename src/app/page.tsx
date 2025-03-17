@@ -10,19 +10,19 @@ export default function Page() {
             Takes<span className="text-primaryContent">Avenue</span>
           </h1>
           <p className="text-2xl text-gray-300">
-            Where your banter turns into tokens
+            Share your fun take on anything and get rewarded for it 
           </p>
           
           {/* Value Props */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             {[
               {
-                title: 'Share Banter',
+                title: 'Share your take',
                 desc: 'Express yourself freely',
                 icon: '💬'
               },
               {
-                title: 'Earn Tokens',
+                title: 'Earn $TKE Tokens',
                 desc: 'Get rewarded for engagement',
                 icon: '🎯'
               },
