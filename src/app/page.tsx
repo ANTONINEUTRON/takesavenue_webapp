@@ -43,7 +43,6 @@ export default function Page() {
           {/* CTA Section */}
           <div className="mt-16 space-x-4">
             <Link href={"https://github.com/ANTONINEUTRON/takesavenue_webapp/releases/tag/TakesAvenue_v0.5-beta"} className="bg-primaryContent text-black px-8 py-4 rounded-full text-lg font-bold hover:bg-gray-400 transition-all">
-              
                 Download App
             </Link>
             <button className="border-2 border-primaryCbg-primaryContent text-primaryCbg-primaryContent px-8 py-4 rounded-full text-lg font-bold hover:bg-yellow-400/10 transition-all">
