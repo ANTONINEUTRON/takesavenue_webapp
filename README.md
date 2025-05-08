@@ -1,6 +1,8 @@
 # TakesAvenue Backend
 
-A backend for TakesAvenue, powering social banter tokenization on Solana.
+A backend for TakesAvenue, powering social banter tokenization on Sonic and Solana.
+
+link to the flutter app: https://github.com/antonineutron/takesavenue
 
 ## Tech Stack
 
